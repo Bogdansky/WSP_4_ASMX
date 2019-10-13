@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://KBA.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://KBA.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ASMX-сервис для лабораторной №4</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://KBA.org/">
+      <s:element name="KBA.HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="KBA.HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KBA.HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.Add">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.AddResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="KBA.AddResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.Concat">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="s" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="d" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.ConcatResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KBA.ConcatResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.Sum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="first" type="tns:A" />
+            <s:element minOccurs="0" maxOccurs="1" name="second" type="tns:A" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="A">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="S" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="K" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="F" type="s:float" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KBA.SumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KBA.SumResult" type="tns:A" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.AddS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="x" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="y" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KBA.AddSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KBA.AddSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KBA.HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:KBA.HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="KBA.HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:KBA.HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="KBA.AddSoapIn">
+    <wsdl:part name="parameters" element="tns:KBA.Add" />
+  </wsdl:message>
+  <wsdl:message name="KBA.AddSoapOut">
+    <wsdl:part name="parameters" element="tns:KBA.AddResponse" />
+  </wsdl:message>
+  <wsdl:message name="KBA.ConcatSoapIn">
+    <wsdl:part name="parameters" element="tns:KBA.Concat" />
+  </wsdl:message>
+  <wsdl:message name="KBA.ConcatSoapOut">
+    <wsdl:part name="parameters" element="tns:KBA.ConcatResponse" />
+  </wsdl:message>
+  <wsdl:message name="KBA.SumSoapIn">
+    <wsdl:part name="parameters" element="tns:KBA.Sum" />
+  </wsdl:message>
+  <wsdl:message name="KBA.SumSoapOut">
+    <wsdl:part name="parameters" element="tns:KBA.SumResponse" />
+  </wsdl:message>
+  <wsdl:message name="KBA.AddSSoapIn">
+    <wsdl:part name="parameters" element="tns:KBA.AddS" />
+  </wsdl:message>
+  <wsdl:message name="KBA.AddSSoapOut">
+    <wsdl:part name="parameters" element="tns:KBA.AddSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SimplexSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Привет, мир!</wsdl:documentation>
+      <wsdl:input name="KBA.HelloWorld" message="tns:KBA.HelloWorldSoapIn" />
+      <wsdl:output name="KBA.HelloWorld" message="tns:KBA.HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Сумма x и y</wsdl:documentation>
+      <wsdl:input name="KBA.Add" message="tns:KBA.AddSoapIn" />
+      <wsdl:output name="KBA.Add" message="tns:KBA.AddSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Concat">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Конкатенация строки s и числа с двумя знаками после запятой d</wsdl:documentation>
+      <wsdl:input name="KBA.Concat" message="tns:KBA.ConcatSoapIn" />
+      <wsdl:output name="KBA.Concat" message="tns:KBA.ConcatSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Sum">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Сумма объектов класса A</wsdl:documentation>
+      <wsdl:input name="KBA.Sum" message="tns:KBA.SumSoapIn" />
+      <wsdl:output name="KBA.Sum" message="tns:KBA.SumSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Сложение чисел (AJAX)</wsdl:documentation>
+      <wsdl:input name="KBA.AddS" message="tns:KBA.AddSSoapIn" />
+      <wsdl:output name="KBA.AddS" message="tns:KBA.AddSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SimplexSoap" type="tns:SimplexSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://KBA.org/KBA.HelloWorld" style="document" />
+      <wsdl:input name="KBA.HelloWorld">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.HelloWorld">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap:operation soapAction="http://KBA.org/KBA.Add" style="document" />
+      <wsdl:input name="KBA.Add">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Add">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concat">
+      <soap:operation soapAction="http://KBA.org/KBA.Concat" style="document" />
+      <wsdl:input name="KBA.Concat">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Concat">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sum">
+      <soap:operation soapAction="http://KBA.org/KBA.Sum" style="document" />
+      <wsdl:input name="KBA.Sum">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Sum">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddS">
+      <soap:operation soapAction="http://KBA.org/KBA.AddS" style="document" />
+      <wsdl:input name="KBA.AddS">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.AddS">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SimplexSoap12" type="tns:SimplexSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://KBA.org/KBA.HelloWorld" style="document" />
+      <wsdl:input name="KBA.HelloWorld">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.HelloWorld">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Add">
+      <soap12:operation soapAction="http://KBA.org/KBA.Add" style="document" />
+      <wsdl:input name="KBA.Add">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Add">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Concat">
+      <soap12:operation soapAction="http://KBA.org/KBA.Concat" style="document" />
+      <wsdl:input name="KBA.Concat">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Concat">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Sum">
+      <soap12:operation soapAction="http://KBA.org/KBA.Sum" style="document" />
+      <wsdl:input name="KBA.Sum">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.Sum">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddS">
+      <soap12:operation soapAction="http://KBA.org/KBA.AddS" style="document" />
+      <wsdl:input name="KBA.AddS">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="KBA.AddS">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Simplex">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">ASMX-сервис для лабораторной №4</wsdl:documentation>
+    <wsdl:port name="SimplexSoap" binding="tns:SimplexSoap">
+      <soap:address location="http://127.0.0.1:4040/Simplex.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SimplexSoap12" binding="tns:SimplexSoap12">
+      <soap12:address location="http://127.0.0.1:4040/Simplex.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\bin\NETFX 4.5.1 Tools\wsdl.exe" http://127.0.0.1:4040/Simplex.asmx?wsdl
